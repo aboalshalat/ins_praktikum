@@ -1,0 +1,99 @@
+@media (max-width: 768px) {
+    :root {
+        --red: #ff0000;
+        --green: #00ff00;
+        --blue: #0000aa;
+        --darkblue: #03107e;
+        --lightblue: #061069;
+        --gray: #b1b1b1;
+        --light-gray: #ccc;
+        --darkgray: #202020;
+        --white: #fff;
+
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--gray);
+        color: var(--white);
+    }
+
+    nav {
+        background-color: var(--blue);
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav a {
+        text-decoration: none;
+        display: grid;
+        color: var(--white);
+        padding: 10px 20px;
+        transition: background-color 0.2s ease;
+    }
+
+    .Navigation_Bar {
+        align-items: center;
+    }
+    nav a:hover {
+        background-color: #000535;
+    }
+
+    main {
+        background-color: var(--white);
+        color: var(--darkgray);
+        padding: 20px;
+    }
+
+    main h1 {
+        align-items: center ;
+        display: flex;
+        justify-content: center;
+        background-color: var(--gray);
+        color: var(--darkgray);
+    }
+
+    /* ---------------------------------------
+       LEBENSLAUF – TABELLENSTYLING
+    ----------------------------------------*/
+    .cv-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        background: var(--white);
+        color: var(--darkgray);
+        border: 1px solid #ccc;
+    }
+
+    .cv-table th,
+    .cv-table td {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        vertical-align: top;
+    }
+
+    .cv-table th {
+        background: #f0f0f0;
+        font-weight: bold;
+        width: 25%;
+    }
+
+    .cv-table ul {
+        margin: 5px 0 5px 20px;
+        padding: 0;
+    }
+
+    .cv-photo {
+        margin-bottom: 20px;
+    }
+
+    .cv-photo img {
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+
+}
