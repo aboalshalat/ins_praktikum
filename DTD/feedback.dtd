@@ -1,0 +1,30 @@
+<!ELEMENT feedback (person, bewertung, informationen, feedbackText, zeitpunkt)>
+
+<!ELEMENT person (anrede, vorname, nachname, alter, email, telefon, website, password)>
+<!ELEMENT anrede (#PCDATA)>
+<!ELEMENT vorname (#PCDATA)>
+<!ELEMENT nachname (#PCDATA)>
+<!ELEMENT alter (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT telefon (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+
+<!ELEMENT bewertung (inhalt, aussehen)>
+<!ELEMENT inhalt EMPTY>
+<!ATTLIST inhalt note CDATA #REQUIRED>
+
+<!ELEMENT aussehen EMPTY>
+<!ATTLIST aussehen note_aussehen CDATA #REQUIRED>
+
+<!ELEMENT informationen (aufmerksamkeit, erneuter_besuch, question, copy)>
+<!ELEMENT aufmerksamkeit (#PCDATA)>
+<!ELEMENT erneuter_besuch (#PCDATA)>
+<!ELEMENT question (#PCDATA)>
+<!ELEMENT copy (#PCDATA)>
+
+<!ELEMENT feedbackText (#PCDATA)>
+
+<!ELEMENT zeitpunkt EMPTY>
+<!ATTLIST zeitpunkt datum CDATA #REQUIRED
+        uhrzeit CDATA #REQUIRED>

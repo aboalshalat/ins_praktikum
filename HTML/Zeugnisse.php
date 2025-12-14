@@ -10,17 +10,7 @@
         <title>Zeugnisse - Amer Abo Alshalat</title>
     </head>
     <body>
-        <header>
-            <nav>
-                <a href="Motivation.html">Motivation</a>
-                <a href="Lebenslauf.html" target="docwin">Lebenslauf</a>
-                <a href="Hobbies.html">Hobbys</a>
-                <a href="Erfahrung.html">Erfahrung</a>
-                <a href="Zeugnisse.html">Zeugnisse</a>
-                <a href="Feedback.html">Feedback</a>
-                <a href="Kontakt.html" target="_blank">Kontakt</a>
-            </nav>
-        </header>
+        <?php include __DIR__ . "/Layout/Navigation.php"; ?>
         <main>
             <h1>Zeugnisse</h1>
             <form action="mailto:mr.ameraboalshalat@gmail.com?subject=Zeugnissbestellung" method="post" enctype="text/plain">
@@ -35,7 +25,6 @@
                         <input id="adresse" name="adresse" type="text" size="40" required>
                     </p>
                 </fieldset>
-
                 <fieldset>
                     <legend>Gewünschte Unterlagen</legend>
                     <p>
@@ -63,7 +52,6 @@
                         <label for="syrTechDip">Technisches Diplom in Computer Engineering zeugnisse</label>
                     </p>
                 </fieldset>
-
                 <fieldset>
                     <legend>Versand</legend>
                     <p>
@@ -78,20 +66,16 @@
                         </select>
                     </p>
                 </fieldset>
-
                 <p>
                     <label for="bemerkungen">Bemerkungen:</label><br>
                     <textarea id="bemerkungen" name="bemerkungen" rows="4" cols="40"></textarea>
                 </p>
-
                 <p>
                     <button type="submit">Bestellung absenden</button>
                     <button type="reset">Zurücksetzen</button>
                 </p>
             </form>
         </main>
-        <footer>
-            <p>&copy; 2025 Amer Abo Alshalat</p>
-        </footer>
+        <?php include __DIR__ . "/Layout/Footer.php"; ?>
     </body>
 </html>

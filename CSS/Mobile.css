@@ -95,5 +95,51 @@
         box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
+    /* ---------------------------------------
+    FEEDBACK – AUSWERTUNG
+    ----------------------------------------*/
+
+    .feedback-table {
+        margin-top: 30px;
+    }
+
+    /* Erste Tabellenzeile */
+    .feedback-title th {
+        background-color: var(--green);
+        color: var(--white);
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    /* Zweite Tabellenzeile */
+    .feedback-header th {
+        background-color: var(--red);
+        color: var(--white);
+        font-style: italic;
+    }
+
+    /* Schlechte Bewertungen */
+    .feedback-alert {
+        color: var(--red);
+        font-weight: bold;
+    }
+
+    .site-footer {
+        background-color: #03107e; /* darkblue aus deinem Theme */
+        color: #ffffff;
+        text-align: center;
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
+
+    .site-footer p {
+        margin: 5px 0;
+    }
+
+    .footer-meta {
+        font-size: 0.8rem;
+        opacity: 0.8;
+    }
 
 }
