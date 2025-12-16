@@ -71,7 +71,7 @@
             if ($copy) {
                 if (empty($email)) {
                     echo "<p style='color:orange;font-weight:bold;'>
-                    Sie wollten eine Kopie erhalten, haben aber keine Email-Adresse angegeben.
+                    Sie wollten eine Kopie erhalten, haben aber keine E-Mail-Adresse angegeben.
                   </p>";
                 } else {
                     echo "<p>Eine Kopie der Nachricht wird an <strong>$email</strong> gesendet.</p>";

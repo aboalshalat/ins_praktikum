@@ -1,3 +1,15 @@
+/**
+ * Klasse: FeedbackData
+ * --------------------
+ * Diese Klasse dient als reiner Datencontainer (DTO – Data Transfer Object)
+ * für ein einzelnes Feedback.
+ *
+ * Sie speichert alle Informationen, die aus einer Feedback-XML-Datei
+ * mit einem SAX-Parser eingelesen werden.
+ *
+ * Die Klasse enthält bewusst keine Logik, sondern nur öffentliche Attribute,
+ * damit der SAX-Handler die Daten einfach setzen kann.
+ */
 public class FeedbackData {
     public String anrede;
     public String vorname;

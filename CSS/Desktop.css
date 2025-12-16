@@ -1,4 +1,12 @@
+/* =========================================================
+   Desktop-Layout
+   Gilt für Bildschirmbreiten ab 1024px
+   ========================================================= */
 @media (min-width: 1024px) {
+
+    /* =====================================================
+       Globale CSS-Variablen (Farbschema)
+       ===================================================== */
     :root {
         --red: #ff0000;
         --green: #00ff00;
@@ -10,6 +18,10 @@
         --darkgray: #202020;
         --white: #fff;
     }
+
+    /* =====================================================
+       Grundlayout der Seite
+       ===================================================== */
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
@@ -17,12 +29,17 @@
         background-color: var(--gray);
         color: var(--white);
     }
+
+    /* =====================================================
+       Navigation
+       ===================================================== */
     nav {
         background-color: var(--blue);
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     nav a {
         text-decoration: none;
         display: inline-block;
@@ -30,27 +47,37 @@
         padding: 10px 20px;
         transition: background-color 0.2s ease;
     }
+
+    /* Container-Klasse für Navigationsleiste */
     .Navigation_Bar {
         align-items: center;
     }
+
+    /* Hover-Effekt für Navigation */
     nav a:hover {
         background-color: #000535;
     }
+
+    /* =====================================================
+       Hauptinhalt
+       ===================================================== */
     main {
         background-color: var(--white);
         color: var(--darkgray);
         padding: 20px;
     }
+
     main h1 {
-        align-items: center ;
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: var(--gray);
         color: var(--darkgray);
     }
-    /* ---------------------------------------
-       LEBENSLAUF – TABELLENSTYLING
-    ----------------------------------------*/
+
+    /* =====================================================
+       Lebenslauf – Tabellenlayout
+       ===================================================== */
     .cv-table {
         width: 100%;
         border-collapse: collapse;
@@ -59,40 +86,50 @@
         color: var(--darkgray);
         border: 1px solid #ccc;
     }
+
     .cv-table th,
     .cv-table td {
         padding: 10px 15px;
         border: 1px solid #ccc;
         vertical-align: top;
     }
+
     .cv-table th {
         background: #f0f0f0;
         font-weight: bold;
         width: 25%;
     }
+
     .cv-table ul {
         margin: 5px 0 5px 20px;
         padding: 0;
     }
+
+    /* Bewerbungsfoto */
     .cv-photo {
         margin-bottom: 20px;
     }
+
     .cv-photo img {
         border-radius: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
+
+    /* Logo-Zentrierung */
     .cv-logo {
-        align-items: center ;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
-    /* ---------------------------------------
-    FEEDBACK – AUSWERTUNG
-    ----------------------------------------*/
+
+    /* =====================================================
+       Feedback – Auswertung
+       ===================================================== */
     .feedback-table {
         margin-top: 30px;
     }
-    /* Erste Tabellenzeile */
+
+    /* Erste Tabellenzeile (Titelzeile) */
     .feedback-title th {
         background-color: var(--green);
         color: var(--white);
@@ -100,27 +137,36 @@
         text-align: center;
         font-size: 1.2em;
     }
-    /* Zweite Tabellenzeile */
+
+    /* Zweite Tabellenzeile (Spaltenüberschriften) */
     .feedback-header th {
         background-color: var(--red);
         color: var(--white);
         font-style: italic;
     }
-    /* Schlechte Bewertungen */
+
+    /* Hervorhebung schlechter Bewertungen */
     .feedback-alert {
         color: var(--red);
         font-weight: bold;
     }
+
+    /* =====================================================
+       Footer
+       ===================================================== */
     .site-footer {
-        background-color: #03107e; /* darkblue aus deinem Theme */
-        color: #ffffff;
+        background-color: var(--darkblue);
+        color: var(--white);
         text-align: center;
         padding: 15px 10px;
         font-size: 0.9rem;
     }
+
     .site-footer p {
         margin: 5px 0;
     }
+
+    /* Zusatzinformationen im Footer (z. B. Jahr, Projektinfo) */
     .footer-meta {
         font-size: 0.8rem;
         opacity: 0.8;

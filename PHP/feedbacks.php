@@ -1,4 +1,16 @@
 <?php
+/* =========================================================
+   Datei: feedbacks.php
+   ---------------------------------------------------------
+   Diese Datei dient zur Auswertung aller gesammelten
+   Feedback-Daten aus der zentralen XML-Datenbankdatei
+   (feedbackdatenbank.xml).
+
+   Die XML-Datei wurde zuvor durch das Java-Programm
+   (SAXValidator) erzeugt und validiert.
+   ========================================================= */
+
+/* Pfad zur zentralen XML-Ausgabedatei */
 $xmlFile = "../XML/output/feedbackdatenbank.xml";
 if (!file_exists($xmlFile)) {
     die("XML-Datei nicht gefunden.");
@@ -22,7 +34,7 @@ if ($xml === false) {
     <body>
     <?php require_once __DIR__ . "/../HTML/Layout/Navigation.php"; ?>
     <main>
-        <h1>Auswertung – Alle Feedbacks</h1>
+        <h1>Auswertung – alle Feedbacks</h1>
         <table class="cv-table feedback-table">
             <tr class="feedback-title">
                 <th colspan="6">Alle Feedbacks</th>
@@ -45,7 +57,7 @@ if ($xml === false) {
                     ? (string)$f->bewertung->vorschlag
                     : "";
                 $erneuterBesuch = (string)$f->bewertung['erneuter_besuch'];
-                $badInhalt = in_array($noteInhalt, ["mangelhaft", "ungenuegend"]);
+                $badInhalt = in_array($noteInhalt, ["mangelhaft", "ungenügend"]);
                 $badAussehen = ($noteAussehen === 5 || $noteAussehen === 6);
                 ?>
                 <tr>

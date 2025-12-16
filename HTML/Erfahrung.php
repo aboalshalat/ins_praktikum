@@ -52,7 +52,7 @@
             </p>
             <div class="cv-logo">
                 <img src="../Media/IHK_Rostock.png" alt="Foto" width="282">
-                <img src="../Media/w-hs_pagelogo.png" alt="Foto" width="540">
+                <img src="../Media/w-hs_pagelogo.png" alt="Foto" width="450">
             </div>
         </main>
         <?php include __DIR__ . "/Layout/Footer.php"; ?>

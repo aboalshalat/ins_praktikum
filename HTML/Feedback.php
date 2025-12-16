@@ -13,7 +13,7 @@
         <?php include __DIR__ . "/Layout/Navigation.php"; ?>
         <main>
             <h1>Feedback</h1>
-            <form action="../PHP/Feedback.php" method="post">
+            <form action="../PHP/SubmittedFeedback.php" method="post">
                 <fieldset>
                     <legend>Personal Information</legend>
                     <br>

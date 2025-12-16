@@ -13,7 +13,7 @@
         <?php include __DIR__ . "/Layout/Navigation.php"; ?>
         <main>
             <h1>Zeugnisse</h1>
-            <form action="mailto:mr.ameraboalshalat@gmail.com?subject=Zeugnissbestellung" method="post" enctype="text/plain">
+            <form action="mailto:mr.ameraboalshalat@gmail.com?subject=Zeugnisbestellung" method="post" enctype="text/plain">
                 <fieldset>
                     <legend>Persönliche Daten</legend>
                     <p>

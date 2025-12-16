@@ -15,27 +15,58 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * Klasse: SAXValidator
+ * -------------------
+ * Diese Klasse ist das Hauptprogramm zur Verarbeitung der Feedback-Daten.
+ *
+ * Aufgaben:
+ *  - Einlesen und Validieren einzelner Feedback-XML-Dateien (DTD)
+ *  - Sammeln der Daten in FeedbackData-Objekten
+ *  - Statistische Auswertung der Feedbacks
+ *  - Erzeugen einer gemeinsamen XML-Datenbankdatei
+ *  - Pretty-Print der Ausgabedatei
+ *  - Erneute Validierung der erzeugten XML-Datei
+ *
+ * Diese Klasse erfüllt die Anforderungen der Aufgaben 7.1 bis 7.7
+ * des INS-Praktikums.
+ */
 public class SAXValidator {
+
+    /**
+     * Zentrale Datensammlung
+     * Liste aller eingelesenen Feedback-Datensätze.
+     * Jedes Element entspricht einer einzelnen Feedback-XML-Datei.
+     */
     static ArrayList<FeedbackData> list = new ArrayList<>();
 
+
+    /**
+     * Hauptmethode des Programms.
+     *
+     * @param args Optionaler Pfad zum XML-Eingabeordner
+     */
     public static void main(String[] args) {
+        /* Eingabeordner bestimmen */
         String xmlDir = (args.length > 0) ? args[0] : "../XML/input";
         File folder = new File(xmlDir);
 
         System.out.println("Arbeitsverzeichnis: " + new File(".").getAbsolutePath());
         System.out.println("XML-Ordner: " + folder.getPath());
 
+        /* Existenzprüfung des XML-Ordners */
         if (!folder.exists() || !folder.isDirectory()) {
             System.out.println("Fehler: XML-Ordner nicht gefunden: " + folder.getPath());
             return;
         }
+        /* Alle XML-Dateien im Ordner sammeln */
         File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".xml"));
 
         if (files == null || files.length == 0) {
             System.out.println("Keine XML-Dateien gefunden in: " + folder.getPath());
             return;
         }
-
+        /* Einlesen & Validieren der Einzeldateien */
         for (File xmlFile : files) {
             System.out.println("\nValidiere: " + xmlFile.getName());
             try {
@@ -46,12 +77,12 @@ public class SAXValidator {
                 System.out.println(e.getMessage());
             }
         }
-
         if (list.isEmpty()) {
             System.out.println("Keine Feedbacken gefunden.");
             return;
         }
 
+        /* Statistische Auswertung */
         int sumNoteAussehen = 0;
         int sumNoteInhalt = 0;
         int countVisitor = 0;
@@ -69,14 +100,14 @@ public class SAXValidator {
         double durchschnittInhalt = (double) sumNoteInhalt / total;
         double prozentVisitor =  ((double) countVisitor / total) * 100;
 
-        // Ausgabe
+        /* Ausgabe der Statistik */
         System.out.println("Anzahl Feedback: " + total);
         System.out.println("Durchschnittliche Note für das Aussehen: " + durchschnittLayout);
         System.out.println("Durchschnittliche Note für das Inhalt: " + durchschnittInhalt);
         System.out.println("Prozent der Besucher, die wiederkommen möchten: %" + prozentVisitor);
         System.out.println("Anzahl der Besucher mit E-Mail-Kopie: " + countCopy);
 
-        // Aufgabe 7.5 XML schreiben
+        // Aufgabe 7.5 – Gemeinsame XML-Datenbank erzeugen
         try {
             String outputFile = "../XML/output/feedbackdatenbank.xml";
 
@@ -84,13 +115,15 @@ public class SAXValidator {
             XMLStreamWriter xml = factory.createXMLStreamWriter(
                     new FileOutputStream(outputFile), "UTF-8"
             );
+
             xml.writeStartDocument("UTF-8", "1.0");
             xml.writeDTD("<!DOCTYPE feedbackdatenbank SYSTEM \"../../DTD/feedbackdatenbank.dtd\">");
             xml.writeStartElement("feedbackdatenbank");
+
             for (FeedbackData f : list) {
                 xml.writeStartElement("feedback");
 
-                // ===== Besucher =====
+                /* ===== Besucher ===== */
                 xml.writeStartElement("besucher");
                 if (f.anrede != null) xml.writeAttribute("anrede", f.anrede);
                 xml.writeAttribute("vorname", f.vorname);
@@ -99,7 +132,7 @@ public class SAXValidator {
                 xml.writeCharacters(String.valueOf(f.alter));
                 xml.writeEndElement();
 
-                // ===== Kontakt =====
+                /* ===== Kontakt ===== */
                 xml.writeStartElement("kontakt");
                 xml.writeAttribute("rueckfrage_erlaubt", boolToJaNein(f.question));
                 if (f.email != null) {
@@ -120,7 +153,7 @@ public class SAXValidator {
                 xml.writeEndElement(); // kontakt
                 xml.writeEndElement(); // besucher
 
-                // ===== Bewertung =====
+                /* ===== Bewertung ===== */
                 xml.writeStartElement("bewertung");
                 xml.writeAttribute("erneuter_besuch", boolToJaNein(f.erneuter_besuch));
                 xml.writeAttribute("note_inhalt", mapNoteInhalt(f.noteInhalt));
@@ -132,7 +165,7 @@ public class SAXValidator {
                 }
                 xml.writeEndElement(); // bewertung
 
-                // ===== Info =====
+                /* ===== Info ===== */
                 xml.writeStartElement("info");
                 xml.writeStartElement("email-gesendet");
                 xml.writeCharacters(boolToJaNein(f.copy));
@@ -147,7 +180,7 @@ public class SAXValidator {
                 xml.writeEndElement(); // feedback
             }
 
-            // Entwickler
+            /* Entwicklerinformation */
             xml.writeStartElement("entwickler_parser");
             xml.writeCharacters("Amer");
             xml.writeEndElement();
@@ -163,7 +196,7 @@ public class SAXValidator {
             e.printStackTrace();
         }
 
-        // Aufgabe 7.7 – Automatische Validierung der Ausgabedatei
+        /* Aufgabe 7.7 – Validierung der Ausgabedatei */
         System.out.println("\nStarte automatische Validierung der Ausgabedatei...");
 
         try {
@@ -183,6 +216,12 @@ public class SAXValidator {
         }
     }
 
+
+    /**
+     * Formatiert eine XML-Datei lesbar (Pretty Print).
+     *
+     * @param filePath Pfad zur XML-Datei
+     */
     static void prettyPrintXML(String filePath) throws Exception {
         Document doc = DocumentBuilderFactory
                 .newInstance()
@@ -205,23 +244,41 @@ public class SAXValidator {
         );
     }
 
+
+    /**
+     * Validiert eine einzelne Feedback-XML-Datei
+     * und liest deren Inhalte in ein FeedbackData-Objekt ein.
+     *
+     * @param xmlFile XML-Datei
+     */
     private static void validateXML(File xmlFile) throws Exception {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         factory.setValidating(true);
         factory.setNamespaceAware(true);
 
         SAXParser parser = factory.newSAXParser();
+
+        /* 1. DTD-Validierung */
         parser.parse(xmlFile, new MyErrorHandler());
+
+        /* 2. Einlesen der Daten */
         FeedbackHandler handler = new FeedbackHandler();
         parser.parse(xmlFile, handler);
-        list.add(handler.getData());
-        System.out.println(list.size());
+
+        /* 3. Speicherung */
+        //list.add(handler.getData());
     }
 
+    /**
+     * Wandelt boolean in "ja" / "nein" um.
+     */
     static String boolToJaNein(boolean b) {
         return b ? "ja" : "nein";
     }
 
+    /**
+     * Wandelt numerische Noten in Textbewertungen um.
+     */
     static String mapNoteInhalt(int n) {
         return switch (n) {
             case 1 -> "sehr_gut";
@@ -234,6 +291,9 @@ public class SAXValidator {
         };
     }
 
+    /**
+     * Eigener ErrorHandler für verständliche SAX-Fehlermeldungen.
+     */
     static class MyErrorHandler extends DefaultHandler {
         @Override
         public void warning(SAXParseException e) throws SAXException {

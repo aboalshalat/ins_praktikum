@@ -57,7 +57,7 @@
                 <tr>
                     <th>01/2014 – 10/2014</th>
                     <td>
-                        Izzat Daouk & Sons, Beirut (Libanon)<br>
+                        Izzat Daoud & Sons, Beirut (Libanon)<br>
                         <strong>Merchandising (Teilzeit)</strong>
                     </td>
                 </tr>
@@ -132,7 +132,7 @@
                 </tr>
                 <tr>
                     <th>Datenbanken</th>
-                    <td>MySQL, PostgreSQL</td>
+                    <td>MySQL, PostgresSQL</td>
                 </tr>
                 <tr>
                     <th>Markup / Stylesheets</th>
@@ -157,7 +157,7 @@
             <!-- Logos -->
             <div class="cv-logo">
                 <img src="../Media/IHK_Rostock.png" alt="Foto" width="282">
-                <img src="../Media/w-hs_pagelogo.png" alt="Foto" width="540">
+                <img src="../Media/w-hs_pagelogo.png" alt="Foto" width="450">
             </div>
         </main>
         <?php include __DIR__ . "/Layout/Footer.php"; ?>

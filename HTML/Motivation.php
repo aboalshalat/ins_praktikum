@@ -38,7 +38,7 @@
                 Entwicklung und Anpassung von Anwendungen im Odoo-ERP-System beteiligt. Ich habe Module in den Bereichen
                 Personalverwaltung, Projektmanagement, Dokumentenmanagement, Einkauf,
                 Verkauf und Finanzwesen programmiert und erweitert. Dabei lag mein Schwerpunkt auf Python,
-                PostgreSQL, Odoo-Frameworks sowie der Analyse von Geschäftsprozessen und deren technischer Umsetzung.
+                PostgresSQL, Odoo-Frameworks sowie der Analyse von Geschäftsprozessen und deren technischer Umsetzung.
                 Diese Arbeit hat mir gezeigt, wie wichtig es ist, sowohl technische Zusammenhänge als auch
                 unternehmerische Anforderungen zu verstehen und sinnvoll miteinander zu verbinden.
             </p>

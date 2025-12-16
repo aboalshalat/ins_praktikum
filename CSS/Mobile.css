@@ -1,4 +1,12 @@
+/* =========================================================
+   Mobile-Layout
+   Gilt für Bildschirmbreiten bis maximal 768px
+   ========================================================= */
 @media (max-width: 768px) {
+
+    /* =====================================================
+       Globale CSS-Variablen (Farbschema)
+       ===================================================== */
     :root {
         --red: #ff0000;
         --green: #00ff00;
@@ -9,9 +17,11 @@
         --light-gray: #ccc;
         --darkgray: #202020;
         --white: #fff;
-
     }
 
+    /* =====================================================
+       Grundlayout der Seite (Mobile)
+       ===================================================== */
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
@@ -20,6 +30,9 @@
         color: var(--white);
     }
 
+    /* =====================================================
+       Navigation (vertikal für mobile Geräte)
+       ===================================================== */
     nav {
         background-color: var(--blue);
         display: grid;
@@ -35,13 +48,19 @@
         transition: background-color 0.2s ease;
     }
 
+    /* Container-Klasse für Navigation */
     .Navigation_Bar {
         align-items: center;
     }
+
+    /* Hover-Effekt für Navigationseinträge */
     nav a:hover {
         background-color: #000535;
     }
 
+    /* =====================================================
+       Hauptinhalt
+       ===================================================== */
     main {
         background-color: var(--white);
         color: var(--darkgray);
@@ -49,16 +68,16 @@
     }
 
     main h1 {
-        align-items: center ;
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: var(--gray);
         color: var(--darkgray);
     }
 
-    /* ---------------------------------------
-       LEBENSLAUF – TABELLENSTYLING
-    ----------------------------------------*/
+    /* =====================================================
+       Lebenslauf – Tabellenlayout (mobil angepasst)
+       ===================================================== */
     .cv-table {
         width: 100%;
         border-collapse: collapse;
@@ -86,6 +105,7 @@
         padding: 0;
     }
 
+    /* Bewerbungsfoto */
     .cv-photo {
         margin-bottom: 20px;
     }
@@ -95,15 +115,14 @@
         box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
-    /* ---------------------------------------
-    FEEDBACK – AUSWERTUNG
-    ----------------------------------------*/
-
+    /* =====================================================
+       Feedback – Auswertung (Mobile)
+       ===================================================== */
     .feedback-table {
         margin-top: 30px;
     }
 
-    /* Erste Tabellenzeile */
+    /* Erste Tabellenzeile (Titelzeile) */
     .feedback-title th {
         background-color: var(--green);
         color: var(--white);
@@ -112,22 +131,25 @@
         font-size: 1.2em;
     }
 
-    /* Zweite Tabellenzeile */
+    /* Zweite Tabellenzeile (Spaltenüberschriften) */
     .feedback-header th {
         background-color: var(--red);
         color: var(--white);
         font-style: italic;
     }
 
-    /* Schlechte Bewertungen */
+    /* Hervorhebung schlechter Bewertungen */
     .feedback-alert {
         color: var(--red);
         font-weight: bold;
     }
 
+    /* =====================================================
+       Footer
+       ===================================================== */
     .site-footer {
-        background-color: #03107e; /* darkblue aus deinem Theme */
-        color: #ffffff;
+        background-color: var(--darkblue);
+        color: var(--white);
         text-align: center;
         padding: 15px 10px;
         font-size: 0.9rem;
@@ -137,9 +159,9 @@
         margin: 5px 0;
     }
 
+    /* Zusatzinformationen im Footer */
     .footer-meta {
         font-size: 0.8rem;
         opacity: 0.8;
     }
-
 }
